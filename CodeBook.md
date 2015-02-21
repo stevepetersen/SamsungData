@@ -26,15 +26,15 @@ to perform these steps, do the following in R:
     tidyData <- getTidyData()
 ```
 
-### Schema
-The tidy data schema is as follows:
+### Variables
+The tidy data variables are as follows:
 
 Subject:  The participant subject identifier, range 1-30.
 
 Activity:  The activity classification, one of WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING
 
 Measurement columns: a subset of the raw data measurements that includes the mean and standard deviation measurements only.  These are in
-the form XXX-std() and YYY-mean().  The meaning of these measurements is beyond the scope of the project, but can be found in the raw data subdirectory in the features_info.txt file.
+the form XXX-std() and YYY-mean().  The meaning of these measurements can be found in the raw data subdirectory in the features_info.txt file.
 
 
 ## Output data (part 2)
@@ -48,12 +48,12 @@ to perform this steps, execute the following R function (in "run_analysis.R") on
     writeDataSet(outputDataSet)
 ```
 
-### Schema
-The output data schema is as follows:
+### Variables
+The output data variables are as follows:
 
 Subject:  The participant subject identifier, range 1-30.
 
 Activity:  The activity classification, one of WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING
 
 Measurement columns: the mean of all observations of the original mean and standard deviation measurements.  These are in
-the form "XXX-std()" and "YYY-mean()".  Understanding the meaning of these measurements is not a goal of this project.
+the form "XXX-std()" and "YYY-mean()".  Understanding the meaning of these summary measurements is not a goal of this project.
