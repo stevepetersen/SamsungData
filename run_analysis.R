@@ -1,6 +1,7 @@
-# data tidier for Samsung data
-
-getSamsungData <- function() {
+#
+# data tidier for accelerometer data.  Creates the initial tidy data set from the accelerometer data bits and pieces.
+#
+getTidyData <- function() {
 
     #this helps us do the grep for mean and std later
     options( StringsAsFactors=FALSE )
@@ -54,15 +55,19 @@ getSamsungData <- function() {
 
     # use merge to associate activity numbers with activity names, be sure not to sort the results
     all_features <- merge(all_features, activity_labels, by.x="ActivityID", by.y="id", sort=F)
-return(all_features)
+    return(all_features)
+}
 
+#
+# Creates the output tidy data set from the tidied Samsung data.
+#
+createOutputDataSet <- function(dataset) {
 
     #
     # finally create and return a data frame of averages of each value by subject and activity
     #
-    groups <- split(all_features, list(all_features$Subject, all_features$Activity))
-    meanAndStdLogical <- grepl("mean()", feature_labels$V2, fixed=TRUE) | grepl("std()", feature_labels$V2, fixed=TRUE)
+    groups <- split(dataset, list(dataset$Subject, dataset$Activity))
     averages <- lapply(groups, colMeans)
-    final_data = unsplit(averages, list(all_features$Subject, all_features$Activity))
+    final_data = unsplit(averages, list(dataset$Subject, dataset$Activity))
 
 }
