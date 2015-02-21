@@ -6,14 +6,18 @@ Repo for the Getting and Cleaning Data Course Project
 - README.md - this file - an overview of the repository contents.
 - run_analysis.R - an R source file that contains methods for tidying the input accelerometer data and creating the output data set for the project.
 - UCI HAR Dataset - a copy of the underlying raw data set
+- output.txt - the output data set from part 2.
 
 # Quick Start
 To create the output data set, run the following in R:
 ```
+    library(dplyr)
     source("run_analysis.R")
     tidyData <- getTidyData()
     outputDataSet <- createOutputDataSet(tidyData)
+    writeDataSet(outputDataSet)
 ```
+Note that the script requires the dplyr package.
 
 # Data License
 Use of the underlying dataset in publications must be acknowledged by referencing the following publication [1]

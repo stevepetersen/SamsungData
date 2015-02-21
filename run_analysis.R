@@ -55,6 +55,7 @@ getTidyData <- function() {
 
     # use merge to associate activity numbers with activity names, be sure not to sort the results
     all_features <- merge(all_features, activity_labels, by.x="ActivityID", by.y="id", sort=F)
+    all_features$ActivityID <- NULL
     return(all_features)
 }
 
@@ -66,8 +67,11 @@ createOutputDataSet <- function(dataset) {
     #
     # finally create and return a data frame of averages of each value by subject and activity
     #
-    groups <- split(dataset, list(dataset$Subject, dataset$Activity))
-    averages <- lapply(groups, colMeans)
-    final_data = unsplit(averages, list(dataset$Subject, dataset$Activity))
+    outputDataSet <- dataset %>% group_by(Activity, Subject) %>% summarise_each(funs(mean))
+    return(outputDataSet)
+}
 
+writeDataSet <- function(dataset) {
+
+    write.table(dataset, "output.txt", row.name=FALSE)
 }

@@ -21,6 +21,7 @@ The project is in two parts.  Part one is to tidy up the raw accelerometer data,
 
 to perform these steps, do the following in R:
 ```
+    library(dplyr)
     source("run_analysis.R")
     tidyData <- getTidyData()
 ```
@@ -40,10 +41,11 @@ the form XXX-std() and YYY-mean().  The meaning of these measurements is beyond 
 Part two is to perform the following:
 - From the data set in part 1, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
 
-to perform this steps, execute the following R function (in "run_analysis.R") on the tidy data set created in part 1:
+to perform this steps, execute the following R function (in "run_analysis.R") on the tidy data set created in part 1, to create the output.txt output file:
 
 ```
     outputDataSet <- createOutputDataSet(tidyData)
+    writeDataSet(outputDataSet)
 ```
 
 ### Schema
