@@ -20,13 +20,18 @@ The project is in two parts.  Part one is to tidy up the raw accelerometer data,
 - Appropriately labels the data set with descriptive variable names.
 
 to perform these steps, do the following in R:
+```
     source("run_analysis.R")
     tidyData <- getTidyData()
+```
 
 ### Schema
 The tidy data schema is as follows:
+
 Subject:  The participant subject identifier, range 1-30.
+
 Activity:  The activity classification, one of WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING
+
 Measurement columns: a subset of the raw data measurements that includes the mean and standard deviation measurements only.  These are in
 the form XXX-std() and YYY-mean().  The meaning of these measurements is beyond the scope of the project, but can be found in the raw data subdirectory in the features_info.txt file.
 
@@ -37,12 +42,16 @@ Part two is to perform the following:
 
 to perform this steps, execute the following R function (in "run_analysis.R") on the tidy data set created in part 1:
 
+```
     outputDataSet <- createOutputDataSet(tidyData)
-
+```
 
 ### Schema
 The output data schema is as follows:
+
 Subject:  The participant subject identifier, range 1-30.
+
 Activity:  The activity classification, one of WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING
+
 Measurement columns: the mean of all observations of the original mean and standard deviation measurements.  These are in
 the form "XXX-std() MEAN" and "YYY-mean() MEAN".  Understanding the meaning of these measurements is not a goal of this project.
