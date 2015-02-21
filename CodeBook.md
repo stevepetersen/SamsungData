@@ -56,4 +56,4 @@ Subject:  The participant subject identifier, range 1-30.
 Activity:  The activity classification, one of WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING
 
 Measurement columns: the mean of all observations of the original mean and standard deviation measurements.  These are in
-the form "XXX-std() MEAN" and "YYY-mean() MEAN".  Understanding the meaning of these measurements is not a goal of this project.
+the form "XXX-std()" and "YYY-mean()".  Understanding the meaning of these measurements is not a goal of this project.
