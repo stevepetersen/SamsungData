@@ -5,7 +5,7 @@ Repo for the Getting and Cleaning Data Course Project
 - CodeBook.md - the codebook for the output data and the tidied raw data.
 - README.md - this file - an overview of the repository contents.
 - run_analysis.R - an R source file that contains methods for tidying the input accelerometer data and creating the output data set for the project.
-
+- UCI HAR Dataset - a copy of the underlying raw data set
 
 # Quick Start
 To create the output data set, run the following in R:
